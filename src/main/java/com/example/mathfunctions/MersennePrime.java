@@ -10,40 +10,22 @@ import java.util.stream.Collectors;
 // Checks for low factors. Then use probabilistic isProbablePrime() method to check higher numbers. --> balancing factorization time : isProbablePrime() time
 // an array size of 1 would still be faster than purely probabilistic prime detection
 // time                     primes        numberOfTerms                                    checkFactors()
+//17102ms/0.28 minutes (2+21 primes); 1000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
 //272086ms/4.53 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
 //4432231ms/73.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 500000;
 // TODO: 1. add calculation for "Up to what prime would you like to search for?", 2. Print equation next to prime
 
-public class MersennePrime {
-static int countTotal = 0;
+public class Mprime_GithubV {
+    static int countTotal = 0;
     static ArrayList<BigInteger> unfactoredNumbers = new ArrayList<>();
 
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        ArrayList<BigInteger> exponentList1 = generateExponentList1(2000);
-        ArrayList<BigInteger> exponentList2 = generateExponentList2(2000);
-        ArrayList<BigInteger> exponentList3 = generateExponentList3(2000);
-        ArrayList<BigInteger> exponentList4 = generateExponentList4(2000);
-
-        /* //VERSION 5
-        for (BigInteger p : exponentList1) {
-            countFactor += checkFactors_5(p);
-        }
-        System.out.println("5 origin factorization complete.");
-        for (BigInteger p : exponentList2) {
-            countFactor += checkFactors_7(p);
-        }
-        System.out.println("7 origin factorization complete.");
-        for (BigInteger p : exponentList3) {
-            countFactor += checkFactors_11(p);
-        }
-        System.out.println("11 origin factorization complete.");
-        for (BigInteger p : exponentList4) {
-            countFactor += checkFactors_13(p);
-        }
-        System.out.println("13 origin factorization complete.");*/
-
-        //VERSION 6
+        ArrayList<BigInteger> exponentList1 = generateExponentList1(1000);
+        ArrayList<BigInteger> exponentList2 = generateExponentList2(1000);
+        ArrayList<BigInteger> exponentList3 = generateExponentList3(1000);
+        ArrayList<BigInteger> exponentList4 = generateExponentList4(1000);
+        
         AtomicInteger countFactor = new AtomicInteger(0);
         long lowFactorTimeStart = System.nanoTime();
         // Parallelize the operations for each list
@@ -475,23 +457,10 @@ static int countTotal = 0;
         return value.isProbablePrime(1) && (twoToPMinus1.remainder(value).equals(BigInteger.ZERO) && !value.equals(twoToPMinus1));
     }
 
-    /* //VERSION 5
-    private static List<BigInteger> filterPrimes(List<BigInteger> numberList1) {
-        List<BigInteger> primeNumberList = new ArrayList<>();
-
-        for (BigInteger number : numberList1) {
-            if (probablePrime(number)) {
-                primeNumberList.add(number);
-            }
-        }
-        return primeNumberList;
-    }*/
-
-    // VERSION 6
     private static List<BigInteger> filterPrimes(List<BigInteger> numberList1) {
         return numberList1.parallelStream() // create a parallel stream
-            .filter(MersennePrime_currentV::probablePrime) // Filter out non-prime numbers
-            .collect(Collectors.toList()); // Collect the primes
+                .filter(Mprime_GithubV::probablePrime) // Filter out non-prime numbers
+                .collect(Collectors.toList()); // Collect the primes
     }
 
     private static boolean probablePrime(BigInteger m_num) {
