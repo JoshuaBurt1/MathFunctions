@@ -4,27 +4,28 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 // Checks for low factors. Then use probabilistic isProbablePrime() method to check higher numbers. --> balancing factorization time : isProbablePrime() time
 // an array size of 1 would still be faster than purely probabilistic prime detection
 // time                     primes        numberOfTerms                                    checkFactors()
-// 166290ms/2.77 minutes   (2+21 primes); 1000 iterations  //value.isProbablePrime(10);  arraySize = 10000;
-// 2214645ms/36.91 minutes (2+22 primes); 1750 iterations  //value.isProbablePrime(10);  arraySize = 50000;
-// 4366065ms/72.77 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 100000;
+//272086ms/4.53 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
+//4432231ms/73.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 500000;
 // TODO: 1. add calculation for "Up to what prime would you like to search for?", 2. Print equation next to prime
 
 public class MersennePrime {
-    static int countFactor = 0;
-    static int countTotal = 0;
+static int countTotal = 0;
     static ArrayList<BigInteger> unfactoredNumbers = new ArrayList<>();
+
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        System.out.println("Generating exponents.");
-        ArrayList<BigInteger> exponentList1 = generateExponentList1(1000);
-        ArrayList<BigInteger> exponentList2 = generateExponentList2(1000);
-        ArrayList<BigInteger> exponentList3 = generateExponentList3(1000);
-        ArrayList<BigInteger> exponentList4 = generateExponentList4(1000);
-        System.out.println("Beginning factorization.");
+        ArrayList<BigInteger> exponentList1 = generateExponentList1(2000);
+        ArrayList<BigInteger> exponentList2 = generateExponentList2(2000);
+        ArrayList<BigInteger> exponentList3 = generateExponentList3(2000);
+        ArrayList<BigInteger> exponentList4 = generateExponentList4(2000);
+
+        /* //VERSION 5
         for (BigInteger p : exponentList1) {
             countFactor += checkFactors_5(p);
         }
@@ -40,13 +41,36 @@ public class MersennePrime {
         for (BigInteger p : exponentList4) {
             countFactor += checkFactors_13(p);
         }
-        System.out.println("13 origin factorization complete.");
+        System.out.println("13 origin factorization complete.");*/
 
+        //VERSION 6
+        AtomicInteger countFactor = new AtomicInteger(0);
+        long lowFactorTimeStart = System.nanoTime();
+        // Parallelize the operations for each list
+        exponentList1.parallelStream().forEach(p -> {
+            countFactor.addAndGet(checkFactors_5(p));
+        });
+        System.out.println("5 origin factorization complete.");
+        exponentList2.parallelStream().forEach(p -> {
+            countFactor.addAndGet(checkFactors_7(p));
+        });
+        System.out.println("7 origin factorization complete.");
+        exponentList3.parallelStream().forEach(p -> {
+            countFactor.addAndGet(checkFactors_11(p));
+        });
+        System.out.println("11 origin factorization complete.");
+        exponentList4.parallelStream().forEach(p -> {
+            countFactor.addAndGet(checkFactors_13(p));
+        });
+        System.out.println("13 origin factorization complete.");
         System.out.println("Total with at least one 'low' factor: " + countFactor + "/" +countTotal);
-    /*System.out.println("List of unfactored numbers");
-    for (int i =0; i<unfactoredNumbers.size();i++){
-        System.out.print(unfactoredNumbers.get(i) +"\n");
-    }*/
+        long lowFactorTimeEnd = System.nanoTime(); // Capture end time
+        long totalLowFactorTime = lowFactorTimeEnd - lowFactorTimeStart; // Calculate total runtime
+        System.out.println("Low factor search runtime (in milliseconds): " + totalLowFactorTime / 1000000);
+        /*System.out.println("List of unfactored numbers");
+        for (int i =0; i<unfactoredNumbers.size();i++){
+            System.out.print(unfactoredNumbers.get(i) +"\n");
+        }*/
 
         System.out.println("\nPrime Number List:");
         List<BigInteger> primeNumberList = filterPrimes(unfactoredNumbers);
@@ -59,19 +83,19 @@ public class MersennePrime {
 
     public static int checkFactors_5(BigInteger p) {
         int localCount = 0;
-        int arraySize = 10000;
+        int arraySize = 500000;
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
         //these arrays are specific to the generating number (5) & the ending number - to not hit numbers divisible by 3 & 5 and must be binary factor ending in 1001,0001,1111,0111
-        int[] i5_1 = new int[]{6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0};
-        int[] i5_3 = new int[]{6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0};
-        int[] i5_7 = new int[]{6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0};
-        int[] i5_9 = new int[]{8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0};
+        int[] i5_1 = new int[]{5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0};
+        int[] i5_9 = new int[]{7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0};
+        int[] i5_3 = new int[]{5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0};
+        int[] i5_7 = new int[]{5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0};
         boolean foundFactor = false;
 
         if (pInt%10==9) {
-            for (int j = 8; j < arraySize; j += (i5_9[modulo60(j)])) {
+            for (int j = 8; j < arraySize; j += 1 + (i5_9[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 5, factor found: " + test + " @ multiple " + j);
@@ -82,7 +106,7 @@ public class MersennePrime {
             }
         }
         else if (pInt%10==1) {
-            for (int j = 6; j < arraySize; j += (i5_1[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i5_1[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 5, factor found: " + test + " @ multiple " + j);
@@ -92,7 +116,7 @@ public class MersennePrime {
                 }
             }
         }else if (pInt%10==3) {
-            for (int j = 6; j < arraySize; j += (i5_3[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i5_3[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 5, factor found: " + test + " @ multiple " + j);
@@ -102,7 +126,7 @@ public class MersennePrime {
                 }
             }
         }else{
-            for (int j = 6; j < arraySize; j += (i5_7[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i5_7[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 5, factor found: " + test + " @ multiple " + j);
@@ -120,19 +144,19 @@ public class MersennePrime {
 
     public static int checkFactors_13(BigInteger p) {
         int localCount = 0;
-        int arraySize = 10000;
+        int arraySize = 500000;
 
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
         //these arrays are specific to the generating number (13) & the ending number - to not hit numbers divisible by 3 & 5 and must be binary factor ending in 1001,0001,1111,0111
-        int[] i13_7 = new int[]{6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0};
-        int[] i13_9 = new int[]{22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0};
-        int[] i13_1 = new int[]{6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0};
-        int[] i13_3 = new int[]{6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0};
+        int[] i13_7 = new int[]{5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0};
+        int[] i13_9 = new int[]{21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0};
+        int[] i13_1 = new int[]{5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0};
+        int[] i13_3 = new int[]{5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0};
         boolean foundFactor = false;
         if (pInt%10==3) {
-            for (int j = 6; j < arraySize; j += (i13_3[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i13_3[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 13, factor found: " + test + " @ multiple " + j);
@@ -142,7 +166,7 @@ public class MersennePrime {
                 }
             }
         } else if (pInt%10==1) {
-            for (int j = 6; j < arraySize; j += (i13_1[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i13_1[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 13, factor found: " + test + " @ multiple " + j);
@@ -153,7 +177,7 @@ public class MersennePrime {
             }
         }
         else if(pInt%10==9) {
-            for (int j = 22; j < arraySize; j += (i13_9[modulo60(j)])) {
+            for (int j = 22; j < arraySize; j += 1 + (i13_9[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 13, factor found: " + test + " @ multiple " + j);
@@ -163,7 +187,7 @@ public class MersennePrime {
                 }
             }
         } else{
-            for (int j = 6; j < arraySize; j += (i13_7[modulo60(j)])) {
+            for (int j = 6; j < arraySize; j += 1 + (i13_7[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 13, factor found: " + test + " @ multiple " + j);
@@ -181,20 +205,20 @@ public class MersennePrime {
 
     public static int checkFactors_7(BigInteger p) {
         int localCount = 0;
-        int arraySize = 10000;
+        int arraySize = 500000;
 
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
         //these arrays are specific to the generating number (7) & the ending number - to not hit numbers divisible by 3 & 5 and must be binary factor ending in 1001,0001,1111,0111
-        int[] i7_7 = new int[]{10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0};
-        int[] i7_9 = new int[]{10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0};
-        int[] i7_1 = new int[]{10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0};
-        int[] i7_3 = new int[]{10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0};
+        int[] i7_7 = new int[]{9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0};
+        int[] i7_9 = new int[]{9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0};
+        int[] i7_1 = new int[]{9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0};
+        int[] i7_3 = new int[]{9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0};
         boolean foundFactor = false;
 
         if (pInt%10==7) {
-            for (int j = 10; j < arraySize; j += (i7_7[modulo60(j)])) {
+            for (int j = 10; j < arraySize; j += 1 + (i7_7[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -205,7 +229,7 @@ public class MersennePrime {
             }
         }
         else if (pInt%10==9) {
-            for (int j = 10; j < arraySize; j += (i7_9[modulo60(j)])) {
+            for (int j = 10; j < arraySize; j += 1 + (i7_9[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -216,7 +240,7 @@ public class MersennePrime {
             }
         }
         else if (pInt%10==1) {
-            for (int j = 10; j < arraySize; j += (i7_1[modulo60(j)])) {
+            for (int j = 10; j < arraySize; j += 1 + (i7_1[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -227,7 +251,7 @@ public class MersennePrime {
             }
         }
         else
-            for (int j = 10; j < arraySize; j += (i7_3[modulo60(j)])) {
+            for (int j = 10; j < arraySize; j += 1 + (i7_3[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -244,19 +268,19 @@ public class MersennePrime {
 
     public static int checkFactors_11(BigInteger p) {
         int localCount = 0;
-        int arraySize = 10000;
+        int arraySize = 500000;
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
         //these arrays are specific to the generating number (11) & the ending number - to not hit numbers divisible by 3 & 5 and must be binary factor ending in 1001,0001,1111,0111
-        int[] i11_9 = new int[]{2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0};
-        int[] i11_7 = new int[]{8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0};
-        int[] i11_1 = new int[]{2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0,2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0};
-        int[] i11_3 = new int[]{2,0,22,0,0,0,6,0,0,0,0,0,2,0,6,0,0,0,0,0,10,0,0,0,2,0,6,0,0,0,6,0,10,0,0,0,8,0,0,0,0,0,8,0,10,0,0,0,0,0,6,0,0,0,6,0,10,0,0,0};
+        int[] i11_9 = new int[]{1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0};
+        int[] i11_7 = new int[]{7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0};
+        int[] i11_1 = new int[]{1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0,1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0};
+        int[] i11_3 = new int[]{1,0,21,0,0,0,5,0,0,0,0,0,1,0,5,0,0,0,0,0,9,0,0,0,1,0,5,0,0,0,5,0,9,0,0,0,7,0,0,0,0,0,7,0,9,0,0,0,0,0,5,0,0,0,5,0,9,0,0,0};
         boolean foundFactor = false;
 
         if (pInt%10==7) {
-            for (int j = 8; j < arraySize; j += (i11_7[modulo60(j)])) {
+            for (int j = 8; j < arraySize; j += 1 + (i11_7[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -267,7 +291,7 @@ public class MersennePrime {
             }
         }
         else if (pInt%10==9) {
-            for (int j = 2; j < arraySize; j += (i11_9[modulo60(j)])) {
+            for (int j = 2; j < arraySize; j += 1 + (i11_9[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -278,7 +302,7 @@ public class MersennePrime {
             }
         }
         else if (pInt%10==1) {
-            for (int j = 2; j < arraySize; j += (i11_1[modulo60(j)])) {
+            for (int j = 2; j < arraySize; j += 1 + (i11_1[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -289,7 +313,7 @@ public class MersennePrime {
             }
         }
         else
-            for (int j = 2; j < arraySize; j += (i11_3[modulo60(j)])) {
+            for (int j = 2; j < arraySize; j += 1 + (i11_3[modulo60(j)])) {
                 BigInteger test = (p).multiply(BigInteger.valueOf(j)).add(BigInteger.ONE);
                 if (isFactorable(test, twoToPMinus1)) {
                     //System.out.println("Origin 7, factor found: " + test + " @ multiple " + j);
@@ -446,11 +470,12 @@ public class MersennePrime {
         return MODULO_MAP.getOrDefault(firstThreeDigits, -1);
     }
 
+    //low certainty (1) okay as other requirements must be met
     public static boolean isFactorable(BigInteger value, BigInteger twoToPMinus1) {
-        BigInteger remainder = twoToPMinus1.remainder(value);
-        return remainder.equals(BigInteger.ZERO) && !value.equals(twoToPMinus1);
+        return value.isProbablePrime(1) && (twoToPMinus1.remainder(value).equals(BigInteger.ZERO) && !value.equals(twoToPMinus1));
     }
 
+    /* //VERSION 5
     private static List<BigInteger> filterPrimes(List<BigInteger> numberList1) {
         List<BigInteger> primeNumberList = new ArrayList<>();
 
@@ -459,13 +484,19 @@ public class MersennePrime {
                 primeNumberList.add(number);
             }
         }
-
         return primeNumberList;
+    }*/
+
+    // VERSION 6
+    private static List<BigInteger> filterPrimes(List<BigInteger> numberList1) {
+        return numberList1.parallelStream() // create a parallel stream
+            .filter(MersennePrime_currentV::probablePrime) // Filter out non-prime numbers
+            .collect(Collectors.toList()); // Collect the primes
     }
 
-    private static boolean probablePrime(BigInteger value) {
-        if(value.isProbablePrime(10)){
-            System.out.println(value);
+    private static boolean probablePrime(BigInteger m_num) {
+        if(m_num.isProbablePrime(10)){
+            System.out.println(m_num);
             return true;
         }
         return false;
