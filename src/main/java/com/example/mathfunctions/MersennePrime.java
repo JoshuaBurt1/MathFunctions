@@ -1,9 +1,7 @@
 package com.example.mathfunctions;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -25,7 +23,7 @@ public class Mprime_GithubV {
         ArrayList<BigInteger> exponentList2 = generateExponentList2(1000);
         ArrayList<BigInteger> exponentList3 = generateExponentList3(1000);
         ArrayList<BigInteger> exponentList4 = generateExponentList4(1000);
-        
+
         AtomicInteger countFactor = new AtomicInteger(0);
         long lowFactorTimeStart = System.nanoTime();
         // Parallelize the operations for each list
@@ -470,7 +468,7 @@ public class Mprime_GithubV {
         }
         return false;
     }
-    
+
     private static void printList(List<BigInteger> list) {
         Collections.sort(list, new Comparator<BigInteger>() {
             @Override
