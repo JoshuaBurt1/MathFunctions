@@ -470,7 +470,14 @@ public class Mprime_GithubV {
         }
         return false;
     }
+    
     private static void printList(List<BigInteger> list) {
+        Collections.sort(list, new Comparator<BigInteger>() {
+            @Override
+            public int compare(BigInteger a, BigInteger b) {
+                return Integer.compare(a.toString().length(), b.toString().length());
+            }
+        });
         for (int i = 0; i < list.size(); i++) {
             System.out.println("Term " + (i + 1) + ": " + list.get(i));
         }
