@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 //232981ms/3.88 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
 //3292485ms/54.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 1000000;
 
-public class Mprime_GithubV {
+public class MersennePrime {
     static int countTotal = 0;
     static ArrayList<BigInteger> unfactoredExponents = new ArrayList<>();
 
