@@ -7,15 +7,14 @@ import java.util.stream.Collectors;
 
 // Checks for low factors. Then use probabilistic isProbablePrime() method to check higher numbers. --> balancing factorization time : isProbablePrime() time
 // an array size of 1 would still be faster than purely probabilistic prime detection
-// time                     primes        numberOfTerms                                    checkFactors()
-//10125ms/0.168 minutes (2+21 primes); 1000 iterations  //value.isProbablePrime(10);  arraySize = 90000;
-//232981ms/3.88 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
-//3292485ms/54.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 1000000;
+// time                     primes       numberOfTerms     low factor array size
+//9950ms/0.165 minutes (2+21 primes);    1000 iterations    arraySize = 90000;
+//232981ms/3.88 minutes (2+24 primes);   2000 iterations    arraySize = 500000;
+//3292485ms/54.87 minutes (2+25 primes); 4000 iterations    arraySize = 1000000;
 
 public class MersennePrime {
     static int countTotal = 0;
     static ArrayList<BigInteger> unfactoredExponents = new ArrayList<>();
-
 
     public static void main(String[] args) {
         long startTime = System.nanoTime();
@@ -461,7 +460,7 @@ public class MersennePrime {
         return numberList1.parallelStream() // create a parallel stream
                 .filter(number -> {
                     // If the number is greater than 18000, use Lucas Lehmer test (generally faster for higher exponents)
-                    if (number.compareTo(BigInteger.valueOf(18000)) > 0) {
+                    if (number.compareTo(BigInteger.valueOf(16383)) > 0) {
                         return lucasLehmerTest(number); // Use Lucas Lehmer test
                     } else {
                         return millerRabinCustom(number, 3); // Use probable prime test with base 3
@@ -469,6 +468,7 @@ public class MersennePrime {
                 })
                 .collect(Collectors.toList());
     }
+
 
     // Miller-Rabin Primality test using a specific base (3)
     private static boolean millerRabinCustom(BigInteger exponent, int base) {
