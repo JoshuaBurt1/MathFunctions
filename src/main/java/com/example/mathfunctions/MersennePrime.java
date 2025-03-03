@@ -8,14 +8,14 @@ import java.util.stream.Collectors;
 // Checks for low factors. Then use probabilistic isProbablePrime() method to check higher numbers. --> balancing factorization time : isProbablePrime() time
 // an array size of 1 would still be faster than purely probabilistic prime detection
 // time                     primes        numberOfTerms                                    checkFactors()
-//17102ms/0.28 minutes (2+21 primes); 1000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
-//272086ms/4.53 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
-//4432231ms/73.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 500000;
-// TODO: 1. add calculation for "Up to what prime would you like to search for?", 2. Print equation next to prime
+//10125ms/0.168 minutes (2+21 primes); 1000 iterations  //value.isProbablePrime(10);  arraySize = 90000;
+//232981ms/3.88 minutes (2+24 primes); 2000 iterations  //value.isProbablePrime(10);  arraySize = 500000;
+//3292485ms/54.87 minutes (2+25 primes); 4000 iterations //value.isProbablePrime(10);  arraySize = 1000000;
 
 public class Mprime_GithubV {
     static int countTotal = 0;
-    static ArrayList<BigInteger> unfactoredNumbers = new ArrayList<>();
+    static ArrayList<BigInteger> unfactoredExponents = new ArrayList<>();
+
 
     public static void main(String[] args) {
         long startTime = System.nanoTime();
@@ -48,12 +48,12 @@ public class Mprime_GithubV {
         long totalLowFactorTime = lowFactorTimeEnd - lowFactorTimeStart; // Calculate total runtime
         System.out.println("Low factor search runtime (in milliseconds): " + totalLowFactorTime / 1000000);
         /*System.out.println("List of unfactored numbers");
-        for (int i =0; i<unfactoredNumbers.size();i++){
-            System.out.print(unfactoredNumbers.get(i) +"\n");
+        for (int i =0; i<unfactoredExponents.size();i++){
+            System.out.print(unfactoredExponents.get(i) +"\n");
         }*/
 
         System.out.println("\nPrime Number List:");
-        List<BigInteger> primeNumberList = filterPrimes(unfactoredNumbers);
+        List<BigInteger> primeNumberList = filterPrimes(unfactoredExponents);
         printList(primeNumberList);
 
         long endTime = System.nanoTime(); // Capture end time
@@ -63,7 +63,7 @@ public class Mprime_GithubV {
 
     public static int checkFactors_5(BigInteger p) {
         int localCount = 0;
-        int arraySize = 500000;
+        int arraySize = 90000;
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
@@ -117,14 +117,14 @@ public class Mprime_GithubV {
             }
         }
         if (!foundFactor) {
-            unfactoredNumbers.add(twoToPMinus1);
+            unfactoredExponents.add(p);
         }
         return localCount;
     }
 
     public static int checkFactors_13(BigInteger p) {
         int localCount = 0;
-        int arraySize = 500000;
+        int arraySize = 90000;
 
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
@@ -178,14 +178,15 @@ public class Mprime_GithubV {
             }
         }
         if (!foundFactor) {
-            unfactoredNumbers.add(twoToPMinus1);
+            unfactoredExponents.add(p);
+
         }
         return localCount;
     }
 
     public static int checkFactors_7(BigInteger p) {
         int localCount = 0;
-        int arraySize = 500000;
+        int arraySize = 90000;
 
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
@@ -241,14 +242,14 @@ public class Mprime_GithubV {
                 }
             }
         if (!foundFactor) {
-            unfactoredNumbers.add(twoToPMinus1);
+            unfactoredExponents.add(p);
         }
         return localCount;
     }
 
     public static int checkFactors_11(BigInteger p) {
         int localCount = 0;
-        int arraySize = 500000;
+        int arraySize = 90000;
         BigInteger twoToPMinus1 = BigInteger.TWO.pow(p.intValue()).subtract(BigInteger.ONE);
         //System.out.println("M#: 2^" + p + "-1 = " + twoToPMinus1);
         int pInt = p.intValue();
@@ -303,7 +304,7 @@ public class Mprime_GithubV {
                 }
             }
         if (!foundFactor) {
-            unfactoredNumbers.add(twoToPMinus1);
+            unfactoredExponents.add(p);
         }
         return localCount;
     }
@@ -456,28 +457,70 @@ public class Mprime_GithubV {
     }
 
     private static List<BigInteger> filterPrimes(List<BigInteger> numberList1) {
+        System.setProperty("java.util.concurrent.ForkJoinPool.commonPool.parallelism", "4");
         return numberList1.parallelStream() // create a parallel stream
-                .filter(Mprime_GithubV::probablePrime) // Filter out non-prime numbers
-                .collect(Collectors.toList()); // Collect the primes
+                .filter(number -> {
+                    // If the number is greater than 18000, use Lucas Lehmer test (generally faster for higher exponents)
+                    if (number.compareTo(BigInteger.valueOf(18000)) > 0) {
+                        return lucasLehmerTest(number); // Use Lucas Lehmer test
+                    } else {
+                        return millerRabinCustom(number, 3); // Use probable prime test with base 3
+                    }
+                })
+                .collect(Collectors.toList());
     }
 
-    private static boolean probablePrime(BigInteger m_num) {
-        if(m_num.isProbablePrime(10)){
-            System.out.println(m_num);
+    // Miller-Rabin Primality test using a specific base (3)
+    private static boolean millerRabinCustom(BigInteger exponent, int base) {
+        // Compute value-1, used in the test (Example: value = 31; d = 30)
+        BigInteger value = BigInteger.ONE.shiftLeft(exponent.intValue()).subtract(BigInteger.ONE);
+
+        BigInteger d = value.subtract(BigInteger.ONE);
+        int s = 0;
+        // Decompose value - 1 as d * 2^s (Example: d = 30 mod 2 -> d = 15)
+        while (d.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
+            d = d.shiftRight(1);
+            s++;
+        }
+        // Compute a^d mod value
+        BigInteger a = BigInteger.valueOf(base);
+        BigInteger x = a.modPow(d, value);
+        // Check if the result is 1 or value-1 (witness for primality)
+        if (x.equals(BigInteger.ONE) || x.equals(value.subtract(BigInteger.ONE))) {
+            System.out.println(value);
             return true;
         }
+        //System.out.println("Composite: " + value);
         return false;
     }
 
+    // Lucas-Lehmer Primality test (designed for Mersenne Primes, but works well for large exponents)
+    private static boolean lucasLehmerTest(BigInteger exponent) {
+        // Mersenne number: M_p = 2^p - 1
+        BigInteger mersenneNumber = BigInteger.ONE.shiftLeft(exponent.intValue()).subtract(BigInteger.ONE);
+        // Initial value for S_0
+        BigInteger s = BigInteger.valueOf(4);
+        BigInteger two = BigInteger.valueOf(2);
+        // Apply recurrence relation S_n = (S_{n-1}^2 - 2) % M_p
+        for (BigInteger n = BigInteger.ONE; n.compareTo(exponent.subtract(BigInteger.ONE)) < 0; n = n.add(BigInteger.ONE)) {
+            s = s.multiply(s).subtract(two); // S_{n-1}^2 - 2
+            s = s.mod(mersenneNumber); // Modulo M_p
+        }
+        // Check if S_{p-2} % M_p == 0
+        if (s.equals(BigInteger.ZERO)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private static void printList(List<BigInteger> list) {
-        Collections.sort(list, new Comparator<BigInteger>() {
-            @Override
-            public int compare(BigInteger a, BigInteger b) {
-                return Integer.compare(a.toString().length(), b.toString().length());
-            }
-        });
+        // Loop through the sorted list and print each BigInteger in 2^p - 1 form
+        Collections.sort(list);
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("Term " + (i + 1) + ": " + list.get(i));
+            BigInteger value = BigInteger.ONE.shiftLeft(list.get(i).intValue()).subtract(BigInteger.ONE);
+            // Print the term number and the Mersenne number representation
+            System.out.println("Term " + (i + 1) + ": " + value);
         }
     }
 }
