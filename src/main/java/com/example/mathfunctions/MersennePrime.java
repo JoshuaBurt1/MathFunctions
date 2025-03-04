@@ -584,31 +584,6 @@ Factor: 11329, division: 50883639536007, remainder: 184, significance: 61, Numbe
 59*3050+1 = 179951
 59*(61*5*5*2)+1 = 179951
 
-ARTIFICIALLY MAKING 0's
-M#: 2^59-1 = 576460752303423487 = 179951 * ...
-Factor: 1063, division: 542296098121753, remainder: 48, significance: 22, Number: 576460752303423487
-Factor: 1889, division: 305167153151627, remainder: 84, significance: 22, Number: 576460752303423487
-Factor: 2833, division: 20348067501[00]32, remainder: 2831, significance: 1, Number: 576460752303423487 // Step 3
-203480675010032-32 = 203480675010000 //gold = 1570, pi/4 = 1.57..., next to a 68 (1 sigma)
-32*2833 = 90656
-90656/59 = 1536, 32 remainder
-remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The Rich Man (who would artificially make 0s)
-                           // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
-Matthew 19:24
-Mark    10:25
-Luke    18:25
-Sum     47:74 (camel chromosome number);
-(19*24+19+24)+(10*25+10+25)+(18*25+18+25) = 1277 = 36^2-19: grid value row 36 col 20 -> 36*20=720 (2 rotations) -> 4*pi = 12.566[37] : note camel chromosome pair #
-Match 12.5663 to the artificial zero created # 90656/59 = 1536, 32 remainder
-~ 153632 -> 153632
-~ 125663 -> 153662
-~ match 1536_2, no match 36 @ at digit 5 : "365:1 year" -> 63.51*[2833] = 1799[23.83] ~ 179951 factor
-                                           "365:1 year:y=1 @ 90° of 360" & [2833]-[2383]=450 =360+90° -> 63.519*2833 = 1799{49.32}7 ~ 179951 factor
-                               Helper step "[2383]: almost like Jesus Christ 2368 = {49^2-33}: grid value {row 49 col 34}, & the truth 72 is that it is 1 to 2 off from 179951 factor." What a coincidence.
-                                            "365:1 year:y=1 @ 90° of 360°" & [2833]-[2383]=450 =90°+360° -> 63.51936*2833 = 179950.34688 ~ 179951 factor
-                                                                                           camel hump shape & 1 sigma (1 side) : 0.34
-                                                                                                                            179951.00688 ~ 179951 factor
-
 DIVIDING AGAINST e
 #Note: check binary values
 # e-1 sequence & e sequence (2.7182...)
@@ -620,10 +595,42 @@ DIVIDING AGAINST e
 203480675010032*e = 553117821322[350.53]
 2833/e = 1042.2024568386960970801188408674186374739829342129982751607016592089084174453011429107982282219903507341952125092990384249636824209744354814393096190367818[52500186]642  //61*5*5*2 = 3050
 
+ARTIFICIALLY MAKING 0's
+M#: 2^59-1 = 576460752303423487 = 179951 * ...
+Potential Factor: 1063, division: 542296098121753, remainder: 48, significance: 22, Number: 576460752303423487
+Potential Factor: 1889, division: 305167153151627, remainder: 84, significance: 22, Number: 576460752303423487
+Potential Factor: 2833, division: 20348067501[00]32, remainder: 2831, significance: 1, Number: 576460752303423487 // Step 3
+203480675010032-32 = 203480675010000 //gold = 1570, pi/4 = 1.57..., next to a 68 (1 sigma)
+32*2833 = 90656
+90656/59 = 1536, 32 remainder
+remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The Rich Man (who would artificially make 0s)
+                           // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
+Matthew 19:24
+Mark    10:25
+Luke    18:25
+Sum     47:74 (camel chromosome number);
+
+Factor Mnemonic:
+(19*24+19+24)+(10*25+10+25)+(18*25+18+25) = 1277 = 36^2-19: grid value row 36 col 20 -> 36*20=720 (2 rotations) -> 4*pi = 12.566[37] : note camel chromosome pair #
+Match 12.5663 to the artificial zero created # 90656/59 = 1536, 32 remainder
+~ 153632 -> 153632
+~ 125663 -> 153662
+~ match 1536_2, no match 36 @ at digit 5 : "365:1 year" -> 63.51*[2833] = 1799[23.83] ~ 179951 factor
+                                           "365:1 year:y=1 @ 90° of 360" & [2833]-[2383]=450 =360+90° -> 63.519*2833 = 1799{49.32}7 ~ 179951 factor
+                               Helper step "[2383]: almost like Jesus Christ 2368 = {49^2-33}: grid value {row 49 col 34}, & the truth 72 is that it is 1 to 2 off from 179951 factor."
+                                           "365:1 year:y=1 @ 90° of 360°" & [2833]-[2383]=450 =90°+360° -> 63.51936*2833 = 179950.34688 ~ 179951 factor
+                                                                                           camel hump shape & 1 sigma (1 side) : 0.34
+                                                                                                                            179951.00688 ~ 179951 factor
+
 LUCAS-LEHMER vs MILLER-RABIN primality test
+                remove 16383 (Miller-Rabin & Lucas-Lehmer test cross point)
+Potential Factor: 1063 -> [10 6 3]  -> 1*8*2*8*9*3 = 3456 -> [345] & 6 -> Hebrew Vav in shape and order of 16383
+Potential Factor: 1889 ->  18[8]9         18*28+39 = 543 : opposite 18+28*39 = 1110 (14 base 2) -> 2^((2^14)-1)-1
+Potential Factor: 2833 ->  28[3]3
+
 //A. Baba Metzia, 38b: HEBREW TEXT
 // "Are you from Pumbedita (Pythagorean triple: 543 = פומבדיתא), where they push an elephant (80+10+30 = פיל) through the eye of a needle?".
-// 16383 is where the Lucas-Lehmer primality test becomes faster than Miller-Rabin (Aside: L:30,L:30,M:40,R:100 A. Greek -> 34.13 1 sigma 1 side)
+// p=16383 is where the Lucas-Lehmer primality test becomes faster than Miller-Rabin (Aside: L:30,L:30,M:40,R:100 A. Greek -> 34.13 1 sigma 1 side)
 // Baba Metzia, 38b, elephant (80+10+30) is in place of camel -> 1[8]383 : guess what number it should be ("camel shape", 68%:1 sigma) -> 16383
 
 //B. QURAN: https://www.masjidtucson.org/quran/wordCount/QuranGV.php
@@ -634,7 +641,7 @@ Gematrical Value: 7447 (permutation of the Bible sum)
 7447*102 = 7,59,59,4 -> match:7995, no match:54 & 11=[3bin] -> concatenate binary 543 (Pumbedita (Pythagorean triple: 543 = פומבדיתא))
 7447/102 = [73].0098039 -> rearrange: [79]9383 -> gold equivalency [1]9383 -> remember gold? 196amu. Switch 2nd # like (Baba Metzia, 38b) -> 16383
 
-~ "the eye of the needle" appears to relate to the calculation time curves of Lucas-Lehmer vs. Miller-Rabin primality test (they cross at 16383)
+~ "the eye of the needle" appears to relate to the calculation time curves of Lucas-Lehmer vs. Miller-Rabin primality test (they cross at p=16383)
 ~ https://en.wikipedia.org/wiki/Pumbedita
 
 ~"the camel" relations:
@@ -642,7 +649,6 @@ i. 11 (3), 111 (7) -> start of the Mersenne Prime sequence : 37 pairs of chromos
 ii. probability shape : 1 sigma = 68%; instead of actually finding a factor, Lucas-Lehmer and Miller-Rabin are saying if a # is probably composite or prime
 
 #########
-
 
 
 
