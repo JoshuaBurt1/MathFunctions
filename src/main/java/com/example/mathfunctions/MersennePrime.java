@@ -526,6 +526,8 @@ public class MersennePrime {
 }
 
 
+
+
 /*
 Notes: Attempting to get a general idea of what a solution should look like:
 |\
