@@ -603,8 +603,11 @@ Match 12.5663 to the artificial zero created # 90656/59 = 1536, 32 remainder
 ~ 153632 -> 153632
 ~ 125663 -> 153662
 ~ match 1536_2, no match 36 @ at digit 5 : "365:1 year" -> 63.51*[2833] = 1799[23.83] ~ 179951 factor
-                                           "365:1 year:y=1 @ 90°" & [2833]-[2383]=450 =360+90° -> 63.519*2833 = 1799{49.32}7 ~ 179951 factor
-                                           "[2383]: almost like Jesus Christ 2368 = {49^2-33}: grid value {row 49 col 34}, & the truth 72 is that it is 1 to 2 off from 179951 factor." What a coincidence.
+                                           "365:1 year:y=1 @ 90° of 360" & [2833]-[2383]=450 =360+90° -> 63.519*2833 = 1799{49.32}7 ~ 179951 factor
+                               Helper step "[2383]: almost like Jesus Christ 2368 = {49^2-33}: grid value {row 49 col 34}, & the truth 72 is that it is 1 to 2 off from 179951 factor." What a coincidence.
+                                            "365:1 year:y=1 @ 90° of 360°" & [2833]-[2383]=450 =90°+360° -> 63.51936*2833 = 179950.34688 ~ 179951 factor
+                                                                                           camel hump shape & 1 sigma (1 side) : 0.34
+                                                                                                                            179951.00688 ~ 179951 factor
 
 DIVIDING AGAINST e
 #Note: check binary values
