@@ -618,8 +618,11 @@ Potential Factor: 59*2^5+1        =  18[8]9
 Potential Factor: 59*2^5+59*2^4+1 =  28[3]3
 //ii. Baba Metzia, 38b
 //"Are you from Pumbedita (Pythagorean triple: {543} = פומבדיתא), where they push an elephant (80+10+30 = פיל) through the eye of a needle?".
-                                                                             6
-// Baba Metzia, 38b, elephant (80+10+30) is in place of the usual camel -> 1[8]383  -> 1 sigma : 68% ("camel hump shape") -> 16383
+//                                                                                   1 2 345  -> 543 = פומבדיתא
+// Baba Metzia, 38b, elephant (80+10+30=120) is in place of the usual camel (68%) -> 1[8]383, switch 2nd digit -> 16383
+//                                                                                     6 -> can’t have a 2 without a 6 ->”Yahweh” IHVH = 26
+//                                                                                     -> vertical 2nd col : 1 sigma : 68.2% ("camel hump shape")
+//                                                                                   -> vertical 1st col: 11  first prime of the M# sequence
 
 //C. QURAN
 // https://www.masjidtucson.org/quran/wordCount/QuranGV.php
@@ -682,8 +685,8 @@ Potential Factor: 2833, division: 20348067501[00]32, remainder: 2831, significan
 90656/59 = 1536, 32 remainder -> contains 61,5,2 of 61*5*5*2 = 3050
 remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The Rich Man (who would artificially make 0s)
                            // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
-
 #########
+
 
 
 
