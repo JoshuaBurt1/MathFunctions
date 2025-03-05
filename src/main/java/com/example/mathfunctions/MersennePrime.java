@@ -585,43 +585,70 @@ Factor: 11329, division: 50883639536007, remainder: 184, significance: 61, Numbe
 59*(3050)+1 = 179951
 59*(61*5*5*2)+1 = 179951
 
-LUCAS-LEHMER vs MILLER-RABIN primality test
-                remove 16383 (Miller-Rabin & Lucas-Lehmer test cross point)
-Potential Factor: 1063 -> [10 6 3]  -> 1*8*2*8*9*3 = 3456 -> {345} & 6 -> Hebrew Vav in shape and order of 16383
-Potential Factor: 1889 ->  18[8]9         18*28+39 = {543} : opposite 18+28*39 = 1110 (14 base 2) -> 2^((2^14)-1)-1
-Potential Factor: 2833 ->  28[3]3
+LUCAS-LEHMER vs MILLER-RABIN primality test relation
+~2^[59]-1 has a strong gematria relation to 2^16383-1 = [5.9]4865e+4931 :
+i. 2^59-1 is one of the first numbers with a more difficult factor to find (use case for primality tests)
+ii. p = 16383 (last 14 digit binary power) is generally where the Lucas-Lehmer primality test becomes faster than Miller-Rabin
+iii. it relates to the first two digits of the # where the calculation times cross at: 2^((2^14)-1)-1 = 2^16383-1 = [5.9]4865e+4931 (Lucas-Lehmer is now faster than Miller-Rabin test; generally (14 digits end here))
+The sequence of possible prime factors for 2^59-1:
+Potential Factor: 59*2^1+59*2^4+1 = [10 6 3] -> starts with binary powers similar to 2^((2^14)-1)-1:
+Potential Factor: 59*2^5+1        =  18[8]9
+Potential Factor: 59*2^5+59*2^4+1 =  28[3]3 -> ends with all possible base 10 numbers in the matrix: 16383 (without repeating)
 
-//A. Baba Metzia, 38b: HEBREW TEXT
-// "Are you from Pumbedita (Pythagorean triple: {543} = פומבדיתא), where they push an elephant (80+10+30 = פיל) through the eye of a needle?".
-// p=16383 is where the Lucas-Lehmer primality test becomes faster than Miller-Rabin (Aside: L:30,L:30,M:40,R:100 A. Greek -> 34.13 1 sigma 1 side)
-// Baba Metzia, 38b, elephant (80+10+30) is in place of camel -> 1[8]383 : guess what number it should be ("camel shape", 68%:1 sigma) -> 16383
+//A. Sargon II: early Mesopotamian gematria (713 BCE)
+// https://www.ucl.ac.uk/sargon/downloads/frahm_nabu2005_44.pdf
+//"I made the circumference (lit., measure) of its (the city's) wall 16283 cubits, (corresponding to) my name (nibīt šumīya)."
+                                       12 3 45
+//"My (23:human chromosome pair) name: 16[2]83, switch 3rd digit -> 16383
+                        add remainder: 28   128
 
-//B. QURAN: https://www.masjidtucson.org/quran/wordCount/QuranGV.php
+Potential Factor: 59*2^1+59*2^4+1 =  10|63
+Potential Factor: 59*2^5+1        =  18|89
+Potential Factor: 59*2^5+59*2^4+1 =  28|33
+// left side: 10(bin)=2,8,1,2,8
+// right side: 6+3+8+9+3+3 = 32 -> 23 human chromosomes
+// top and bottom separation & left and right separation -> cross of the Lucas-Lehmer and Miller-Rabin primality test calculation times
+
+//B. HEBREW TEXTS
+//i. Midrash on the Song of Songs
+//"The Holy One said, open for me a door as big as a needle's eye and I will open for you a door through which may enter tents and camels."
+Potential Factor: 59*2^1+59*2^4+1 = [10 6 3] -> Hebrew ו vav (6:tent peg) in shape and order of 16383; camel hump shape : 1 sigma : 68%
+Potential Factor: 59*2^5+1        =  18[8]9
+Potential Factor: 59*2^5+59*2^4+1 =  28[3]3
+//ii. Baba Metzia, 38b
+//"Are you from Pumbedita (Pythagorean triple: {543} = פומבדיתא), where they push an elephant (80+10+30 = פיל) through the eye of a needle?".
+                                                                             6
+// Baba Metzia, 38b, elephant (80+10+30) is in place of the usual camel -> 1[8]383  -> 1 sigma : 68% ("camel hump shape") -> 16383
+
+//C. QURAN
+// https://www.masjidtucson.org/quran/wordCount/QuranGV.php
 // Quran Verse 7:40 (74 = [37]*2 pairs camel chromosomes);
 // Num letters: 102
 // Gematrical Value: 7447 (permutation of the Bible sum)
 // (2^59-1)/179951 -> strong relationship to this #
-// 7447*102 = 7,59,59,4 -> match:7995, no match:54 & 11=[3bin] -> concatenate binary {543} (Pumbedita & Pythagorean triple: {543} = פומבדיתא)
+// 7447*102 = 7,59,59,4 -> match:7995, no match:54 & 11=[3 bin] -> concatenate binary {543} (Pumbedita & Pythagorean triple: {543} = פומבדיתא)
 // 7447/102 = [73].0098039 -> rearrange: [79]9383 -> gold equivalency [1]9383 -> remember gold? 196amu. Switch 2nd # like (Baba Metzia, 38b) -> 16383
 
-//C. BIBLE (SEPTUIGANT)
+//D. BIBLE - SEPTUIGANT
+                remove 16383 (Miller-Rabin & Lucas-Lehmer test cross point)
+Potential Factor: 1063 -> [10 6 3]  -> 1*8*2*8*9*3 = 3456 -> {345} & 6 -> Hebrew ו vav in shape and order of 16383
+Potential Factor: 1889 ->  18[8]9         18*28+39 = {543} : opposite 18+28*39 = 1110 (14 base 2) -> 2^((2^14)-1)-1
+Potential Factor: 2833 ->  28[3]3
+
 //Matthew 19:24 -> [19:2 4]
 //Mark    10:25 ->  10:2[5]
 //Luke    18:25 ->  18:2[5]
 //Sum     47:74 -> [47:7 4]  -> (camel chromosome number); 19+24+55+74+47 = 219 κάμηλον in the shape of Hebrew ב bet (2)
 //                               remainder: 128^2-1 = 16383
-//                               Note: This completes IHVH = 26 :ב|ו ("God the Father / Yahweh")
-
-~2^[59]-1 is used because:
-i. it is one of the first numbers with a more difficult factor to find (use case for primality tests)
-ii. it relates to the first two digits of the # where the calculation times cross at: 2^((2^14)-1)-1 = 2^16383-1 = [5.9]4865e+4931 (Lucas-Lehmer is now faster than Miller-Rabin test)
+//                               Note: This completes IHVH = 26 (Hebrew) :ב|ו ("God the Father / Yahweh")
 
 ~ "the eye of the needle" appears to relate to the calculation time curves of Lucas-Lehmer vs. Miller-Rabin primality test (they cross at p=16383)
 ~ https://en.wikipedia.org/wiki/Pumbedita
 
 ~"the camel" relations:
-i. 11 (3), 111 (7) -> start of the Mersenne Prime sequence : 37 pairs of chromosomes -> paired with "eye of the needle" 11111111111111 (16383)
+i. 11 (3), 111 (7) -> start of the Mersenne # sequence : 37 pairs of chromosomes -> paired with "eye of the needle" 11111111111111 (16383)
 ii. camel hump probability shape : 1 sigma = 68%; instead of actually finding a factor, Lucas-Lehmer and Miller-Rabin are saying if a # is probably composite or prime
+Aside: [L]ucas-[L]ehmer and [M]iller-[R]abin: L:30,L:30,M:40,R:100 (A. Greek) -> 34.13 1 sigma 1 side
 
 
 *Note: The Ancient Greeks seem to notice that the factors are more common around the zeros
@@ -651,6 +678,7 @@ remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The
                            // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
 
 #########
+
 
 
 
