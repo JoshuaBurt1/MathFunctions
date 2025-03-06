@@ -582,33 +582,37 @@ Factor: 11329, division: 50883639536007, remainder: 184, significance: 61, Numbe
 
 >(-.o)>
 
-# M59 -> 2^59-1 = 576460752303423487 = 179951*3203431780337 = (59*3050+1) * (59*54295453904+1)
+M#59 -> 2^59-1 = 576460752303423487 = 179951*3203431780337 = (59*3050+1) * (59*54295453904+1)
 59*(3050)+1 = 179951
 59*(61*5*5*2)+1 = 179951
 
-LUCAS-LEHMER vs MILLER-RABIN primality test
-~2^[59]-1 has a strong gematria relation to 2^16383-1 = [5.9]4865e+4931 :
+LUCAS-LEHMER vs MILLER-RABIN primality test relation
+~2^[59]-1 has a strong gematria relation to 2^16383-1 = 2^((2^14)-1)-1 = [5.9]4865e+4931 :
 i. 2^59-1 is one of the first numbers with a more difficult factor to find (use case for primality tests)
 ii. p = 16383 (last 14 digit binary power) is generally where the Lucas-Lehmer primality test becomes faster than Miller-Rabin
-iii. it relates to the first two digits of the # where the calculation times cross at: 2^((2^14)-1)-1 = 2^16383-1 = [5.9]4865e+4931 (Lucas-Lehmer is now faster than Miller-Rabin test)
-The sequence of possible prime factors for 2^59-1:
-Potential Factor: 59*2^1+59*2^4+1 = [10 6 3] -> starts with binary powers similar to 2^((2^14)-1)-1:
-Potential Factor: 59*2^5+1        =  18[8]9
-Potential Factor: 59*2^5+59*2^4+1 =  28[3]3 -> ends with all possible base 10 numbers in the matrix: 16383 (without repeating)
+iii. it relates to the first two digits of the # where the calculation times cross at: 2^16383-1 = [5.9]4865e+4931 (Lucas-Lehmer is now faster than Miller-Rabin test)
+The sequence (first 3) of possible prime factors for 2^59-1:
+Potential Factor: 59*2^1+59*2^4+1 =  1063 -> starts with binary powers similar to 2^((2^14)-1)-1:
+Potential Factor: 59*2^5+1        =  1889
+Potential Factor: 59*2^5+59*2^4+1 =  2833 -> ends with all possible base 10 numbers in the matrix: 16383 (without repeating)
+...
 
 //A. Sargon II: early Mesopotamian gematria (713 BCE)
 // https://www.ucl.ac.uk/sargon/downloads/frahm_nabu2005_44.pdf
 //"I made the circumference (lit., measure) of its (the city's) wall 16283 cubits, (corresponding to) my name (nibīt šumīya)."
-                                       12 3 45
-//"My (23:human chromosome pair) name: 16[2]83, switch 3rd digit -> 16383
-                        add remainder: 28   128
+// Circumference = 16283. Radius = 16283÷(2*π) = [2591].5199 -> [2^59-1]
+                                         12 3 45
+// "My (23:human chromosome pair) name": 16[2]83  -> switch 3rd digit -> 16383
+                          add remainder:
+                       1+1,2+6,4+8,5+3 = 2,8, 12,8 -> match to [2^59-1] possible factor sequence
 
+The sequence (first 3) of possible prime factors for [2^59-1]:
 Potential Factor: 59*2^1+59*2^4+1 =  10|63
 Potential Factor: 59*2^5+1        =  18|89
-Potential Factor: 59*2^4+59*2^5+1 =  28|33
-// left side: 10(bin)=2,8,1,2,8
-// right side: 6+3+8+9+3+3 = 32 -> 23 human chromosomes
-// top and bottom separation & left and right separation -> cross of the Lucas-Lehmer and Miller-Rabin primality test calculation times
+Potential Factor: 59*2^4+59*2^5+1 =  28|33  -> add separation (|): 10+63+18+89+28+33 = 241 & (|) -> 2^14-1 = 16383
+// left side: 10(bin)+=2+8+1+2+8  =  23
+// right side: 6+3+8+9+3+3        =     32  ->  either way: 23 human chromosome pairs
+// top and bottom separation & left and right separation -> cross of the Lucas-Lehmer and Miller-Rabin primality test calculation times at p = 16383
 
 //B. HEBREW TEXTS
 //i. Midrash on the Song of Songs
@@ -619,12 +623,12 @@ Potential Factor: 59*2^5+59*2^4+1 =  28[3]3
 //ii. Baba Metzia, 38b
 //"Are you from Pumbedita (Pythagorean triple: {543} = פומבדיתא), where they push an elephant (80+10+30 = פיל) through the eye of a needle?".
 //                                                                                   1 2 345  -> 543 = פומבדיתא
-// Baba Metzia, 38b, elephant (80+10+30=120) is in place of the usual camel (68%) -> 1[8]383, switch 2nd digit -> 16383
-//                                                                                     6 -> can’t have a 2 without a 6 ->”Yahweh” IHVH = 26
+// Baba Metzia, 38b, elephant (80+10+30=120) is in place of the usual camel (68%) -> 1[8]383 -> switch 2nd digit -> 16383
+//                                                                                     6  -> can’t have a 2 without a 6 ->”Yahweh” IHVH = 26
 //                                                                                     -> vertical 2nd col : 1 sigma : 68.2% ("camel hump shape")
 //                                                                                   -> vertical 1st col: 11  first prime of the M# sequence
 
-//C. QURAN
+//C. QURAN (QURANIC ARABIC)
 // https://www.masjidtucson.org/quran/wordCount/QuranGV.php
 // Quran Verse 7:40 (74 = [37]*2 pairs camel chromosomes);
 // Num letters: 102
@@ -633,7 +637,7 @@ Potential Factor: 59*2^5+59*2^4+1 =  28[3]3
 // 7447*102 = 7,59,59,4 -> match:7995, no match:54 & 11=[3 bin] -> concatenate binary {543} (Pumbedita & Pythagorean triple: {543} = פומבדיתא)
 // 7447/102 = [73].0098039 -> rearrange: [79]9383 -> gold equivalency [1]9383 -> remember gold? 196amu. Switch 2nd # like (Baba Metzia, 38b) -> 16383
 
-//D. BIBLE - SEPTUIGANT
+//D. BIBLE - SEPTUIGANT (ANCIENT GREEK)
                 remove 16383 (Miller-Rabin & Lucas-Lehmer test cross point)
 Potential Factor: 1063 -> [10 6 3]  -> 1*8*2*8*9*3 = 3456 -> {345} & 6 -> Hebrew ו vav in shape and order of 16383
 Potential Factor: 1889 ->  18[8]9         18*28+39 = {543} : opposite 18+28*39 = 1110 (14 base 2) -> 2^((2^14)-1)-1
@@ -650,13 +654,19 @@ Potential Factor: 2833 ->  28[3]3
 ~ https://en.wikipedia.org/wiki/Pumbedita
 
 ~"the camel" relations:
-i. 11 (3), 111 (7) -> start of the Mersenne # sequence : 37 pairs of chromosomes -> paired with "eye of the needle" 11111111111111 (16383)
+i. 11 (3), 111 (7) -> start of the Mersenne # sequence : 37 pairs of chromosomes -> paired with "eye of the needle" 11111111111111 = 2^14-1 = 16383
+ii. Hebrew gematria for camel: גמל = 73
 ii. camel hump probability shape : 1 sigma = 68%; instead of actually finding a factor, Lucas-Lehmer and Miller-Rabin are saying if a # is probably composite or prime
 Aside: [L]ucas-[L]ehmer and [M]iller-[R]abin: L:30,L:30,M:40,R:100 (A. Greek) -> 34.13 1 sigma 1 side
 
 
-*Note: The Ancient Greeks seem to know this 3 # sequence & observe that the prime factors of the group are more common around a greater number of 0s:
+//OTHER ANCIENT GREEK
+* Possible Assyrian-Ancient Greek knowledge sharing:
+* Assyria (713 BCE)           Ancient Greek sequence within 16383 -> Greek God Hermes (Ἑρμῆς) = 353 permutation (~ 700 BCE)
+Radius = 16283÷(2×pi) = 2591.5199,3836[533]1...
 
+* The Ancient Greeks possibly observe that the prime factors of the group are more common around a greater number of 0s:
+i.
 DIVIDING AGAINST e : relation to the Greek God, Hermes (Ἑρμῆς) = 353
 # e-1 sequence (1.7182...) & e sequence (2.7182...)
 ~ possible relation to the tree (n!) structure of permutations, where n is the length of the # string
@@ -665,16 +675,14 @@ DIVIDING AGAINST e : relation to the Greek God, Hermes (Ἑρμῆς) = 353
 Potential Factor: 1063, division: 542296098121753, remainder: 48, significance: 22, Number: 576460752303423487
 Potential Factor: 1889, division: 305167153151627, remainder: 84, significance: 22, Number: 576460752303423487
 Potential Factor: 2833, division: 20348067501[00]32, remainder: 2831, significance: 1, Number: 576460752303423487 // Step 3
-203480675010032*(1/1!+1/2!)   =  [305]221[0]12515048
-203480675010032*(1/1!+1/2!+1/3!)  = 339134458[350053.3]     // Hermes (Ἑρμῆς) = 353; turtle shell (hexagon pattern : e) myth (50 = row 8 col 1 cows from Apollo, makes a lyre:number string); factor is 179951 = 101011111011101111 : 18 digits
 203480675010032*(1/0!+1/1!+1/2!+1/3!+1/4!+1/5!+1/6!+1/7!+1/8!+1/9!+1/10!+1/11!+1/12!+1/13!+1/14!+1/15!+1/16!+1/17!+1/18!) = 553117821322[350.535]88   //Hermes:Mercury:Planet 88 days : 8*11=88;
-203480675010032*e = 553117821322[350.53]
-2833/e = 1042.2024568386960970801188408674186374739829342129982751607016592089084174453011429107982282219903507341952125092990384249636824209744354814393096190367818[52500186]642  //61*5*5*2 = 3050
-// notice that the prime factors of the group seem to be more common around a greater number of 0s:
-203480675010032*(1/1!+1/2!+1/3!) = 339134458[350053.3] ->   contains 5,5 of 61*5*5*2 = 3050
+// Strong myth relation: Hermes (Ἑρμῆς) = 353; turtle shell (hexagon pattern : e) myth (50 = row 8 col 1 cows from Apollo, makes a lyre:number string); factor is 179951 = 101011111011101111 : 18 digits
+// The prime factors of the group seem to be more common around a greater number of 0s:
+203480675010032*(1/1!+1/2!+1/3!) = 339134458[350053.3] ->   contains 5,5 of 61*5*5*2 = 3050 & Ἑρμῆς relation
+203480675010032*e = 553117821322[350.53]               ->   contains 5,5 of 61*5*5*2 = 3050 & Ἑρμῆς relation
 2833/e = 1042.2024568...6190367818[52500186]642        ->   contains 61,5,5,2 of 61*5*5*2 = 3050
 
-
+ii.
 ARTIFICIALLY MAKING 0's
 M#: 2^59-1 = 576460752303423487 = 179951 * ...
 Potential Factor: 1063, division: 542296098121753, remainder: 48, significance: 22, Number: 576460752303423487
@@ -685,6 +693,7 @@ Potential Factor: 2833, division: 20348067501[00]32, remainder: 2831, significan
 90656/59 = 1536, 32 remainder -> contains 61,5,2 of 61*5*5*2 = 3050
 remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The Rich Man (who would artificially make 0s)
                            // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
+
 #########
 
 
