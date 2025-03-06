@@ -579,6 +579,7 @@ Factor: 11329, division: 50883639536007, remainder: 184, significance: 61, Numbe
 
 
 #########
+
 >(-.o)>
 
 M#59 -> 2^59-1 = 576460752303423487 = 179951*3203431780337 = (59*3050+1) * (59*54295453904+1)
@@ -624,13 +625,11 @@ In the year that Tartan came into Ashdod, when Sargon the king of Assyria sent h
 // Rearrange: 3021377 & 1+3+3+4+3+9+5+9 = 37 -> 37th Mersenne Prime : p = 3021377 -> Mersenne # sequence: 11 (3), 111 (7)
 // Note: camel: גמל = 73 -> -> continues to Midrash on the Song of Songs, Bible, and Quran
 // Note: elephant: 120 = פיל -> continues to Baba Metzia, 38b
-
 //ii. Midrash on the Song of Songs
 //"The Holy One said, open for me a door as big as a needle's eye and I will open for you a door through which may enter tents and camels."
 Potential Factor: 59*2^1+59*2^4+1 = [10 6 3] -> Hebrew ו vav (6:tent peg) in shape and order of 16383; camel hump shape : 1 sigma : 68%
 Potential Factor: 59*2^5+1        =  18[8]9
 Potential Factor: 59*2^5+59*2^4+1 =  28[3]3
-
 //iii. Baba Metzia, 38b
 //"Are you from Pumbedita (Pythagorean triple: {543} = פומבדיתא), where they push an elephant (80+10+30 = 120 = פיל) through the eye of a needle?".
 //                                                                                   1 2 345  -> 543 = פומבדיתא
@@ -734,6 +733,7 @@ You, elephant-keeper, my good man, should position the elephant Kuvalayāpīḍa
 Potential Factor: 59*2^1+59*2^4+1 =  1063  -> (2^59-1)/[1063 = 542]296098121753.0451...
 Potential Factor: 59*2^5+1        =  1889
 Potential Factor: 59*2^5+59*2^4+1 =  2833 
+
 #########
 
 
