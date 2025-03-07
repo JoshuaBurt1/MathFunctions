@@ -601,7 +601,7 @@ Potential Factor: 59*2^5+59*2^4+1 =  2833 -> ends with all possible base 10 numb
 //"I made the circumference (lit., measure) of its (the city's) wall 16283 cubits, (corresponding to) my name (nibīt šumīya)."
 // Circumference = 16283. Radius = 16283÷(2*π) = [2591].5199 -> [2^59-1]
                                          12 3 45
-// "My (23:human chromosome pair) name": 16[2]83  -> switch 3rd digit -> 16383
+// "My (23:human chromosome pair) name": 16[2]83   -> switch 3rd digit from 2 to 3 -> 16383
                           add remainder:
                        1+1,2+6,4+8,5+3 = 2,8, 12,8 -> match to [2^59-1] possible factor sequence
 
@@ -619,17 +619,18 @@ Potential Factor: 59*2^4+59*2^5+1 =  28|33  -> add separation (|): 10+63+18+89+2
 "In the year that Tartan came into Ashdod, when Sargon the king of Assyria sent him, and he fought against Ashdod and took it"
 1+(2+300+50+400)+(2+1)+(400+200+400+50)+(1+300+4+6+4+5)+(2+300+30+8)+(1+400+6)+(60+200+3+6+50)+(40+30+20)+(1+300+6+200)+(6+10+30+8+40)+(2+1+300+4+6+4)+(6+10+30+20+4+5)
 = [1+752+3]+1050+320+340+407+319+90+507+94+[317+75]
-* Knowing Sargon "#1" is associated with 23 & note 1st 3 digits: 1+(2+3...: split into 2 and 3 groups and choose greatest digit:
-// Choose greatest digit: [1,7,3],[3,7],(2,[groups])  & remainder: 1,3,3,4,3,9,{5,9} -> note last 2 are 59
-// Rearrange: 3021377 & 1+3+3+4+3+9+5+9 = 37 -> 37th Mersenne Prime : p = 3021377 -> Mersenne # sequence: 11 (3), 111 (7)
+* Knowing Sargon "king:#1" is associated with 23 & note 1st 3 digits: 1+(2+3...: split into 2 and 3 groups and choose greatest digit:
+// Choose greatest digit: [1,7,3],[3,7],(2,[groups])  & remainder: 1,3,3,4,3,9,{5,9} -> note last 2 are 59 -> 2^59
+// Rearrange: 3021377 & 1+3+3+4+3+9+5+9 = 37 -> 37th Mersenne Prime : p = 3021377 -> very difficult to find without using Lucas-Lehmer or Miller-Rabin primality tests
+// Mersenne # sequence: 11 (3), 111 (7)
 // Note: camel: גמל = 73 -> -> continues to Midrash on the Song of Songs, Bible, and Quran
 // Note: elephant: 120 = פיל -> continues to Baba Metzia, 38b
 
 //ii. Midrash on the Song of Songs
 //"The Holy One said, open for me a door as big as a needle's eye and I will open for you a door through which may enter tents and camels."
-Miller-Rabin & Lucas-Lehmer test cross point: 16383 & remainder #s
+Miller-Rabin & Lucas-Lehmer test cross point: p=16383 & remainder #s
 Potential Factor: 59*2^1+59*2^4+1 = [10 6 3] -> Hebrew ו vav (6:tent peg) in shape and order of 16383; camel hump shape : 1 sigma : 68%
-Potential Factor: 59*2^5+1        =  18[8]9  -> 1*8*2*8*9*3 = 3456 -> {345 : פומבדיתא} & 6 -> Hebrew ו vav in shape and order of 16383
+Potential Factor: 59*2^5+1        =  18[8]9  -> 1*8*2*8*9*3 = 3456 -> {345 : "פומבדיתא"} & 6 -> Hebrew ו vav in shape and order of 16383
 Potential Factor: 59*2^5+59*2^4+1 =  28[3]3     18*28+39 = {543 : פומבדיתא} : opposite 18+28*39 = 1110 (14 base 2) -> 2^((2^14)-1)-1
 
 //iii. Baba Metzia, 38b
@@ -640,40 +641,32 @@ Potential Factor: 59*2^5+59*2^4+1 =  28[3]3     18*28+39 = {543 : פומבדית
 //                                                                                     -> vertical 2nd col : 1 sigma : 68.2% ("camel hump shape")
 //                                                                                   -> vertical 1st col: 11  first prime of the M# sequence
 
-//C. QURAN (QURANIC ARABIC): https://www.masjidtucson.org/quran/wordCount/QuranGV.php
-"Surely the gates of Heaven shall not be opened for those who reject Our signs as false and turn away ' from them in arrogance"
-nor shall they enter Paradise until a camel passes through the eye of a needle. Thus do We reward the guilty ones."
-// Quran Verse 7:40 (74 = [37]*2 pairs camel chromosomes);
-// Num letters: 102  -> Isaiah: 20:1 reference
-// Gematrical Value: 7447 (74: camel chromosome number, permutation of the Bible sum)
-// (2^59-1) factor: 179951
-// 7447*102 =       759594 -> match:7995, no match:54 & 11=[3 bin] -> concatenate binary {543} (Pumbedita & Pythagorean triple: {543} = פומבדיתא)
-// 7447/102 = [73].0098039 -> 37th Mp reference -> rearrange: [79]9383 -> gold equivalency [1]9383 -> remember gold? 196amu. Switch 2nd # -> 16383
-
-//D. BIBLE - SEPTUIGANT (ANCIENT GREEK): https://www.blueletterbible.org/mgnt/mat/19/24/s_948024
+//C. BIBLE - SEPTUIGANT (ANCIENT GREEK): https://www.blueletterbible.org/mgnt/mat/19/24/s_948024
 "Again I tell you, it is easier for a camel to go through the eye of a needle than for someone who is rich to enter the kingdom of God.”
-//Assuming this is retained from a Hebrew source: Miller-Rabin & Lucas-Lehmer test cross point: 16383
-Potential Factor: 1063 -> [10 6 3] -> Hebrew ו vav (6) in shape and order of 16383;
+//Assuming this is retained from a Hebrew source -> Miller-Rabin & Lucas-Lehmer test cross point: p=16383
+Potential Factor: 1063 -> [10 6 3] -> Hebrew ו vav (6) in shape and order of [16383];
 Potential Factor: 1889 ->  18[8]9
 Potential Factor: 2833 ->  28[3]3
 
-//Matthew 19:24 -> [19:2 4]        -> 19+24+55+74+47 = 219 κάμηλον : camel (A. Greek) in the shape of Hebrew ב bet (2)
-//Mark    10:25 ->  10:2[5]        -> Isaiah: 20:1 reference
-//Luke    18:25 ->  18:2[5]        -> remainder from ב bet : 128^2-1 = 16383
-//Sum     47:74 -> [47:7 4]        -> 74: camel chromosome number;
-//                                  Note: This completes IHVH = 26 (Hebrew) :ב|ו ("God the Father / Yahweh")
+Matthew 19:24 -> [19:2 4]        -> [19+24+55+74+47] = 219 κάμηλον : camel (A. Greek) in the shape of Hebrew ב bet (2)
+Mark    10:25 ->  10:2[5]        -> Isaiah: 20:1 reference
+Luke    18:25 ->  18:2[5]        -> total remainder from ב bet : 128^2-1 = 16383
+Sum     47:74 -> [47:7 4]        -> 74: camel chromosome number
+                                 Note: This completes IHVH = 26 (Hebrew) :ב|ו ("God the Father / Yahweh")
 
-//Why modify? Ancient Greeks combine Hebrew knowledge with Greek God Hermes knowledge (related to the constant e); see OTHER ANCIENT GREEK section
-//The centered-hexagon number structure is related to e = ~ (61/37)^2, (91/61)^2.5, (127/91)^3, ...
+// Whoever wrote this appears to know about factor digits having a higher distribution with the constant e & around 0s; see ADDENDUM: OTHER ANCIENT GREEK
+// (4) corners of Matthew, Mark, Luke, Sum: 1+4+4+4+(4) = 17
+                                 0 1  2  3  4
+// The centered-hexagon sequence 1,7,19,37,61... relation to e = ~ (61/37)^2, (91/61)^2.5, (127/91)^3, ...
 Mersenne Prime 37 is retained from Isaiah: 20:1 between sum values 47 and 74 in a centered-hexagon number structure
            ...
        37, 55, 79, 109, 145, 187    // Up to the 37th "step", under 79 : 1 "prime"
-       36, 54, 78, 108, 144, 186    // Highlight sum values: [47],[74] & remainder values: [102],[182]
+       36, 54, 78, 108, 144, 186    // Highlight sum values: [47],[74] & bet remainder values: [102],[182]
        35, 53, 77, 107, 143, 185
        34, 52, 76, 106, 142, 184
        33, 51, 75, 105, 141, 183
        32, 50,[74],104, 140,[182]
-    19,31, 49, 73, 103, 139, 181    // Between [47] & [74] -> 73,72,71  in Γ = 3 shape
+    19,31, 49, 73, 103, 139, 181    // Between [47] & [74] -> 73,72,71  in a G:Γ = 3 shape
     18,30, 48, 72,[102],138, 180    //                         3_21377  (extra 7) -> Mp 37 = 3021377
     17,29,[47],71, 101, 137, 179    // 3 above 2 in [102] : Sargon II inscription & Isaiah: 20:1 (only mention of Sargon) reference
     16,28, 46, 70, 100, 136, 178                                         012    102 : Isaiah: 20:1
@@ -686,16 +679,124 @@ Mersenne Prime 37 is retained from Isaiah: 20:1 between sum values 47 and 74 in 
   3, 9,21, 39, 63,  93, 129, 171
 1,2, 8,20, 38, 62,  92, 128, 170
 
+// Reason for the new numbers? The Hebrew version (Isaiah: 20:1) is more compact.
+//Hints:
+i.  4 entries in ב bet (2)}
+ii. {2 or 4} words: eye of the needle                               Highlight Hebrew ו vav (6) matrix #s
+Matthew 19:24: τρυπήματος ῥαφίδος (truphmatos rafidos)             = [2 3 8]4  -> Remainder #s: 4,2,4,7,5
+Mark: 10:25: τῆς τρυμαλιᾶς τῆς ῥαφίδος (ths trumalias ths rafidos) =  2[9 8 3]                  4*2*4*7*5 = 1120
+Luke 18:25: τρήματος βελόνης (trhmatos belonhs)                   = [1 3 8]4                   4+2+4+7+5 = 22
+Sum:                                                                [6]7 5[1]                              1120+22= 11,{42}
+
+Matrix 2 & 6 remainder: 1+8+9+2+8+3+1+0+2+1+8+2 = 45
+                        1*8*9*2*8*3*1*2*1*8*2 = 110592
+Matrix 2 & 6 letters:   1+0+6+3+8+3+1+9+2+4+5+5+4+7+7+4 = 69        -> addition difference: 69-45 = {24}
+                        1*6*3*8*3*1*9*2*4*5*5*4*7*7*4 = [609638]400 -> similar #s to vav (6) matrix, highlight first 6; ד dalet (4) remains
+//Highlight Hebrew ו vav (6) matrix; note: 110(bin) = 6
+[1 0 63]  -> 1638(9=3^2) & 1 -> rearrange: 2^16383-1 (Miller-Rabin & Lucas-Lehmer test cross point)
+[1]8[89]
+ 2 8 33  -> mirrored Hebrew ד dalet (4): door
+// Mirrored dalet #s: 2+8+8+3+3 = 24 : {42} mirrored
+// All other #s rearranged           : 25964951 & 10=2 or 01=1 -> 2^25964951-1
+// MP {42}: p=25964951 -> very difficult to find without using Lucas-Lehmer or Miller-Rabin primality tests
+
+
+//D. QURAN (QURANIC ARABIC): https://www.masjidtucson.org/quran/wordCount/QuranGV.php
+"Surely the gates of Heaven shall not be opened for those who reject Our signs as false and turn away from them in arrogance
+nor shall they enter Paradise until a camel passes through the eye of a needle. Thus do We reward the guilty ones."
+// Quran Verse 7:40         -> 74: camel chromosome number
+// Num letters: 102         -> Isaiah: 20:1 reference
+// Gematrical Value: 7447   -> 74: camel chromosome number, permutation of the Bible sum
+// (2^59-1) factor: 179951
+// 7447*102 =       759594 -> match:7995, no match:54 & 11=[3 bin] -> concatenate binary {543} (Pumbedita & Pythagorean triple: {543} = פומבדיתא)
+// 7447/102 = [73].0098039 -> camel: גמל = 73 -> rearrange: [79]9383 -> gold equivalency [1]9383 -> remember gold? 196amu. Switch 2nd # -> 16383
+
+           ...
+       37, 55, 79, 109, 145, 187
+       36, 54, 78, 108, 144, 186
+       35, 53, 77, 107, 143, 185
+       34, 52, 76, 106, 142, 184
+       33, 51, 75, 105, 141, 183
+       32, 50,[74],104, 140, 182   // Between [74] & [47] crossing [102] -> 104,103,102,101  in an A:alif (أ) = 1 shape
+    19,31, 49, 73, 103, 139, 181   //                                       43112(110)(0)(1001)
+    18,30, 48, 72,[102],138, 180   //                            Mp 47: p = 43112609
+    17,29,[47],71, 101, 137, 179
+    16,28, 46, 70, 100, 136, 178
+    15,27, 45, 69,  99, 135, 177
+    14,26, 44, 68,  98, 134, 176
+  7,13,25, 43, 67,  97, 133, 175
+  6,12.24. 42, 66,  96, 132, 174
+  5,11,23, 41, 65,  95, 131, 173
+  4,10,22, 40, 64,  94, 130, 172
+  3, 9,21, 39, 63,  93, 129, 171
+1,2, 8,20, 38, 62,  92, 128, 170
+
+// Reason for the new numbers?
+  X
+//2 words: eye of a needle = سَمِّ الخِياط
+ XX X     X X         X X
+(60,40); (1,30,600,10,1,9);                                  012 -> 201 : Isaiah: 20:1 reference
+         43112609  -> Extra #s: 10,600,00 -> 6*100000(bin) = 192 -> 219 : 219 κάμηλον : camel (A. Greek) & 1+6 = 7 (centered-hexagon sequence; below)
+MP 47: p=43112609  -> very difficult to find without using Lucas-Lehmer or Miller-Rabin primality tests
+
 
 ~ "the eye of the needle" appears to relate to the calculation time curves of Lucas-Lehmer vs. Miller-Rabin primality test (they cross at p=16383)
 ~ https://en.wikipedia.org/wiki/Pumbedita
 
-~"the camel" combined with "heaven:kingdom of god" - going to a high number":
-i. 11 (3), 111 (7) -> start of the Mersenne # sequence : camel has 37 pairs of chromosomes -> paired with "eye of the needle" 11111111111111 = 2^14-1 = 16383
+~"the camel" combined with "heaven:kingdom of god" -> going to a high number:
+i. 11 (3), 111 (7) -> start of the Mersenne # sequence : camel has 37 pairs of chromosomes -> paired with "eye of the needle" p = 11111111111111 = 2^14-1 = 16383
 ii. camel hump probability shape : 1 sigma = 68%; instead of actually finding a factor, Lucas-Lehmer and Miller-Rabin are saying if a # is probably composite or prime
 Aside: [L]ucas-[L]ehmer and [M]iller-[R]abin: L:30,L:30,M:40,R:100 (A. Greek) -> 34.13 1 sigma 1 side
 
 
+//E. Bhagavata Purana (Śrīmad-Bhāgavatam) : https://vedabase.io/en/search/?query=elephants
+SEARCH "ELEPHANT": elephant trunk : camel hump shape (1 sigma: 68%)
+ŚB 10.36
+                           Match:      34      43 -> (elephant trunk 34+34 = 68%: 1 sigma )
+Potential Factor: 59*2^1+59*2^4+1 =  1063 -> 1036
+Potential Factor: 59*2^5+1        =  1889
+Potential Factor: 59*2^5+59*2^4+1 =  2833
+
+ŚB 10.36.11
+गृहीत्वा श‍ृङ्गयोस्तं वा अष्टादश पदानि स: । प्रत्यपोवाह भगवान् गज: प्रतिगजं यथा ॥ ११ ॥
+The Supreme Lord Kṛṣṇa seized Ariṣṭāsura by the horns and threw him back eighteen steps, just as an elephant might do when fighting a rival elephant.
+// All #s: 10=2, 11=3, 36, 18 -> 2^16383 -> Lucas-Lehmer or Miller-Rabin primality test cross point
+
+ŚB 10.36.21:
+The King of the Bhojas next called for his ministers, headed by Muṣṭika, Cāṇūra, Śala and Tośala, and also for his elephant-keepers.The King addressed them as follows.
+
+ŚB 10.36.25
+महामात्र त्वया भद्र रङ्गद्वार्युपनीयताम् । द्विप: कुवलयापीडो जहि तेन ममाहितौ ॥ २५ ॥
+You, elephant-keeper, my good man, should position the elephant Kuvalayāpīḍa at the entrance to the wrestling arena and have him kill my two enemies.
+
+ŚB 10.36.32:
+After you bring Kṛṣṇa and Balarāma, I will have Them killed by my elephant, who is as powerful as death itself.
+And if by chance They escape from him, I will have Them killed by my wrestlers, who are as strong as lightning.
+
+//Chapter Analysis:
+Canto 10                      :  10th Mp: p = 89
+Verse sum of elephant mentions: 11+21+25+32 = 89
+
+Reverse the elephant verses:       32252111  <- Last 4 digits
+                                    [E]XXXX
+Mp 10: 2^89-1 = 618970019642690137449562111
+                           5
+E = elephant chromosomes: 56 -> 90° : 1 = y -> 56+1 = 25+32 = 57
+
+Entry to Mp 39:
+                    XXXXXX X
+4956-3225 = 1731 -> 13714956
+                    XXXX XXX
+Mp 39:              13466917 -> Only non-match is 56 (elephant chromosomes)
+                                    3                           4 -> 34% (1 sigma 1 side)
+1371496+1346917 = 2718,413 -> First 3 digits of π (3.14), First 4 digits of e (2.718)
+// Used in standard normal distribution equation "Elephant trunk :Camel hump shape"
+                        23      32 (switch 3rd and 2nd digit like Sargon inscription)
+//Sargon II reference: 3910 -> 319 = Sargon: סַרְגוֹן
+
+
+
+//ADDENDUM:
 //OTHER ANCIENT GREEK
 * Possible Assyrian-Ancient Greek knowledge sharing:
 * Assyria (713 BCE)           Ancient Greek sequence within 16383 -> Greek God Hermes (Ἑρμῆς) = 353 permutation (~ 700 BCE)
@@ -729,38 +830,6 @@ Potential Factor: 2833, division: 20348067501[00]32, remainder: 2831
 90656/59 = 1536, 32 remainder -> contains 61,5,2 of 61*5*5*2 = 3050
 remainders 2831+32 = 2863  // permutation of 2368 =Jesus Christ (A.Greek) in The Rich Man (who would artificially make 0s)
                            // Camel art near an opening 0: https://en.wikipedia.org/wiki/Eye_of_a_needle#/media/File:Dortmund,_Bonifatius-Kirche,_Eingang_West.jpg
-
-
-//E. Bhagavata Purana (Śrīmad-Bhāgavatam) : https://vedabase.io/en/search/?query=elephants
-SEARCH "ELEPHANT": trunk like 1 sigma: 68% shape (camel equivalent)
-ŚB 10.36.11
-गृहीत्वा श‍ृङ्गयोस्तं वा अष्टादश पदानि स: ।
-प्रत्यपोवाह भगवान् गज: प्रतिगजं यथा ॥ ११ ॥
-The Supreme Lord Kṛṣṇa seized Ariṣṭāsura by the horns and threw him back eighteen steps, just as an elephant might do when fighting a rival elephant.
-All #s: 10=2, 11=3, 36, 18 -> 2^16383
-			             [Binary (11) set
-Potential Factor: 59*2^1+59*2^4+1 =  1063] -> Start
-Potential Factor: 59*2^5+1        =  1889
-Potential Factor: 59*2^5+59*2^4+1 =  2833
-
-ŚB 8.12.27
-तामन्वगच्छद् भगवान् भव: प्रमुषितेन्द्रिय: । कामस्य च वशं नीत: करेणुमिव यूथप: ॥ २७ ॥
-His senses being agitated, Lord Śiva, victimized by lusty desires, began to follow Her, just as a lusty elephant follows a she-elephant.
-128^2 = 16384
-
-ŚB 10.43.5
-एवं निर्भर्त्सितोऽम्बष्ठ: कुपित: कोपितं गजम् । चोदयामास कृष्णाय कालान्तकयमोपमम् ॥ ५ ॥
-Thus threatened, the elephant-keeper became angry. He goaded his furious elephant, who appeared equal to time, death and Yamarāja, into attacking Lord Kṛṣṇa.
-1 sigma : 34 (1 side : 0.5); appeared equal to time
-
-ŚB 10.36.25
-महामात्र त्वया भद्र रङ्गद्वार्युपनीयताम् ।
-द्विप: कुवलयापीडो जहि तेन ममाहितौ ॥ २५ ॥
-You, elephant-keeper, my good man, should position the elephant Kuvalayāpīḍa at the entrance to the wrestling
-
-Potential Factor: 59*2^1+59*2^4+1 =  1063  -> (2^59-1)/[1063 = 542]296098121753.0451...
-Potential Factor: 59*2^5+1        =  1889
-Potential Factor: 59*2^5+59*2^4+1 =  2833
 
 #########
 
