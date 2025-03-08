@@ -586,10 +586,10 @@ M#59 -> 2^59-1 = 576460752303423487 = 179951*3203431780337 = (59*3050+1) * (59*5
 59*(3050)+1 = 179951
 59*(61*5*5*2)+1 = 179951
 
-LUCAS-LEHMER vs MILLER-RABIN primality test relation
+// LUCAS-LEHMER vs MILLER-RABIN primality test relation for Mersenne numbers (2^p-1)
 ~2^[59]-1 has a strong gematria relation to 2^16383-1 = 2^((2^14)-1)-1 = [5.9]4865*10^4931 :
 i. 2^59-1 is one of the first numbers with a more difficult factor to find (use case for primality tests)
-ii. p = 16383 (last 14 digit binary power) is generally where the Lucas-Lehmer primality test becomes faster than Miller-Rabin
+ii. p = 16383 (last 14 digit binary power) is generally where the Lucas-Lehmer primality test becomes faster than Miller-Rabin primality test
 iii. it relates to the first two digits of the # where the calculation times cross at: 2^16383-1 = [5.9]4865e+4931 (Lucas-Lehmer is now faster than Miller-Rabin test)
 The sequence (first 3) of possible prime factors for 2^59-1:
 Potential Factor: 59*2^1+59*2^4+1 =  1063 -> starts with binary powers similar to 2^((2^14)-1)-1:
@@ -597,11 +597,26 @@ Potential Factor: 59*2^5+1        =  1889
 Potential Factor: 59*2^5+59*2^4+1 =  2833 -> ends with all possible base 10 numbers in the matrix: 16383 (without repeating)
 ...
 
+// Miller-Rabin Algorithm: https://www.youtube.com/watch?v=_MscGSN5J6o
+a= 23 "witness", n = 747 "is this prime?"
+n= 747 = 2^m*d+1
+        = 2^1*373+1
+a^d=1 MOD n?
+23^373 MOD 747 = 131 (not 1, therefore not prime)
+// For better results use a combination of witness numbers "judging whether prime or composite"
+a=2,3             -> works up to 1373653   -> it will be prime if 2 and 3 say it is prime. Above this it is still a high chance that if 2 and 3 say it is prime, it will still be prime.
+a=2,3,5           -> works up to 25326001
+a=31,73           -> works up to 9080191
+a=2,13,23,1662803 -> works up to 1122004669633
+a=2,3,5,7,11      -> works up to 2152302898747
+a=2,3,5,7,11,13,17,19,23,29,31,37 -> works up to 318,665,857,834,031,151,167,461... ~10^23
+//However, Lucas-Lehmer will determine 2^n-1 primality faster past 2^16383-1 compared to Miller-Rabin
+
 
 //A. Sargon II: early Mesopotamian gematria (713 BCE) : https://www.ucl.ac.uk/sargon/downloads/frahm_nabu2005_44.pdf
 //"I made the circumference (lit., measure) of its (the city's) wall 16283 cubits, (corresponding to) my name (nibīt šumīya)."
 // Circumference = 16283. Radius = 16283÷(2*π) = [2591].5199 -> [2^59-1]
-                                         12 3 45
+       (or a = 2,3 witness #s)           12 3 45
 // "My (23:human chromosome pair) name": 16[2]83   -> switch 3rd digit from 2 to 3 -> 16383
                           add remainder:
                        1+1,2+6,4+8,5+3 = 2,8, 12,8 -> match to [2^59-1] possible factor sequence
@@ -823,6 +838,9 @@ Mp 39:            p=13466917 -> Only non-match is 5 & 6 : 56 elephant chromosome
   4, 10,  22, 40,   64,  94, 130, 172
   3,  9, [21],39,   63,  93, 129, 171
 1,2,  8,  20, 38,   62,  92, 128, 170
+
+// MP {39}: p=13466917 -> very difficult to find without using Lucas-Lehmer or Miller-Rabin primality tests
+
 
 
 
