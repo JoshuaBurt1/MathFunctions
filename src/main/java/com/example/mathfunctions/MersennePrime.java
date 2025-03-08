@@ -597,6 +597,7 @@ Potential Factor: 59*2^5+1        =  1889
 Potential Factor: 59*2^5+59*2^4+1 =  2833 -> ends with all possible base 10 numbers in the matrix: 16383 (without repeating)
 ...
 
+
 //A. Sargon II: early Mesopotamian gematria (713 BCE) : https://www.ucl.ac.uk/sargon/downloads/frahm_nabu2005_44.pdf
 //"I made the circumference (lit., measure) of its (the city's) wall 16283 cubits, (corresponding to) my name (nibīt šumīya)."
 // Circumference = 16283. Radius = 16283÷(2*π) = [2591].5199 -> [2^59-1]
@@ -612,6 +613,7 @@ Potential Factor: 59*2^4+59*2^5+1 =  28|33  -> add separation (|): 10+63+18+89+2
 // left side: 10(bin)+=2+8+1+2+8  =  23
 // right side: 6+3+8+9+3+3        =     32  ->  either way: 23 human chromosome pairs
 // top and bottom separation & left and right separation -> cross of the Lucas-Lehmer and Miller-Rabin primality test calculation times at p = 16383
+
 
 //B. HEBREW TEXTS : https://mechon-mamre.org/p/pt/pt1020.htm
 //i. Isaiah 20:1
@@ -640,6 +642,7 @@ Potential Factor: 59*2^5+59*2^4+1 =  28[3]3     18*28+39 = {543 : פומבדית
 //                                                                                     6  -> can’t have a 2 without a 6 ->”Yahweh” IHVH = 26
 //                                                                                     -> vertical 2nd col : 1 sigma : 68.2% ("camel hump shape")
 //                                                                                   -> vertical 1st col: 11  first prime of the M# sequence
+
 
 //C. BIBLE - SEPTUIGANT (ANCIENT GREEK): https://www.blueletterbible.org/mgnt/mat/19/24/s_948024
 "Again I tell you, it is easier for a camel to go through the eye of a needle than for someone who is rich to enter the kingdom of God.”
@@ -739,7 +742,7 @@ nor shall they enter Paradise until a camel passes through the eye of a needle. 
          43112609  -> Extra #s: 10,600,00 -> 6*100000(bin) = 192 -> 219 : 219 κάμηλον : camel (A. Greek) & 1+6 = 7 (centered-hexagon sequence; below)
 MP 47: p=43112609  -> very difficult to find without using Lucas-Lehmer or Miller-Rabin primality tests
 
-
+//HEBREW TEXTS, BIBLE, & QURAN
 ~ "the eye of the needle" appears to relate to the calculation time curves of Lucas-Lehmer vs. Miller-Rabin primality test (they cross at p=16383)
 ~ https://en.wikipedia.org/wiki/Pumbedita
 
@@ -749,8 +752,8 @@ ii. camel hump probability shape : 1 sigma = 68%; instead of actually finding a 
 Aside: [L]ucas-[L]ehmer and [M]iller-[R]abin: L:30,L:30,M:40,R:100 (A. Greek) -> 34.13 1 sigma 1 side
 
 
-//E. Bhagavata Purana (Śrīmad-Bhāgavatam) : https://vedabase.io/en/search/?query=elephants
-SEARCH "ELEPHANT": elephant trunk : camel hump shape (1 sigma: 68%)
+//E. BHAGAVATA PURANA (Śrīmad-Bhāgavatam) : https://vedabase.io/en/search/?query=elephants
+SEARCH "ELEPHANT" -> elephant trunk : camel hump shape (1 sigma: 68%)
 ŚB 10.36
                            Match:      34      43 -> (elephant trunk 34+34 = 68%: 1 sigma )
 Potential Factor: 59*2^1+59*2^4+1 =  1063 -> 1036
@@ -761,38 +764,65 @@ Potential Factor: 59*2^5+59*2^4+1 =  2833
 गृहीत्वा श‍ृङ्गयोस्तं वा अष्टादश पदानि स: । प्रत्यपोवाह भगवान् गज: प्रतिगजं यथा ॥ ११ ॥
 The Supreme Lord Kṛṣṇa seized Ariṣṭāsura by the horns and threw him back eighteen steps, just as an elephant might do when fighting a rival elephant.
 // All #s: 10=2, 11=3, 36, 18 -> 2^16383 -> Lucas-Lehmer or Miller-Rabin primality test cross point
-
 ŚB 10.36.21:
 The King of the Bhojas next called for his ministers, headed by Muṣṭika, Cāṇūra, Śala and Tośala, and also for his elephant-keepers.The King addressed them as follows.
-
 ŚB 10.36.25
 महामात्र त्वया भद्र रङ्गद्वार्युपनीयताम् । द्विप: कुवलयापीडो जहि तेन ममाहितौ ॥ २५ ॥
 You, elephant-keeper, my good man, should position the elephant Kuvalayāpīḍa at the entrance to the wrestling arena and have him kill my two enemies.
-
 ŚB 10.36.32:
 After you bring Kṛṣṇa and Balarāma, I will have Them killed by my elephant, who is as powerful as death itself.
 And if by chance They escape from him, I will have Them killed by my wrestlers, who are as strong as lightning.
 
 //Chapter Analysis:
-Canto 10                      :  10th Mp: p = 89
-Verse sum of elephant mentions: 11+21+25+32 = 89
+Canto 10
+Verse sum of elephant mentions: 32+25+21+11 = 89 -> 10th Mp: p = 89
 
 Reverse the elephant verses:       32252111  <- Last 4 digits
                                     [E]XXXX
 Mp 10: 2^89-1 = 618970019642690137449562111
                            5
-E = elephant chromosomes: 56 -> 90° : 1 = y -> 56+1 = 25+32 = 57
+E = elephant chromosomes: 56 -> 90° : y=1
 
 Entry to Mp 39:
-                    XXXXXX X
-4956-3225 = 1731 -> 13714956
-                    XXXX XXX
-Mp 39:              13466917 -> Only non-match is 56 (elephant chromosomes)
-                                    3                           4 -> 34% (1 sigma 1 side)
-1371496+1346917 = 2718,413 -> First 3 digits of π (3.14), First 4 digits of e (2.718)
-// Used in standard normal distribution equation "Elephant trunk :Camel hump shape"
-                        23      32 (switch 3rd and 2nd digit like Sargon inscription)
+                    XXXXXX2X     ~Notice similarity to Mp 10                              98765 4321 -> 9th value is off by 3 (Look up Mp 39 from a list...)
+6594-5223= 1371 -> [13714956] (concatenate 1371|4956 : Mp 10: 2^89-1 = 618970019642690[13744956]2111
+                    XXXX4XXX
+Mp 39:            p=13466917 -> Only non-match is 5 & 6 : 56 elephant chromosomes
+                                     3                           4 -> 34% (1 sigma 1 side)
+1371496+1346917 = 2718,413 -> [First 3 digits of π (3.14), First 4 digits of e (2.718)]
+// Used in standard normal distribution equation -> e^((-z^2)/2)/sqrt(2π) : "Elephant trunk :Camel hump shape"
+// Was the above a random occurrence? Probably not.
+
+//Mp 10 & 39 ->         23      32 : switch 3rd digit 2 : Sargon inscription
 //Sargon II reference: 3910 -> 319 = Sargon: סַרְגוֹן
+//13466917 -> 1+3+4+6+6+9+1+7 = 37 : Sargon is associated with the 37th Mp
+
+//Unmatched values: 2:5 & 4:6 -> 2+5=7, 4+6=10 -> 01, 7 -> Check centered-hexagon structure (1,7,19,37,61...)
+                    2:4 & 5:6 -> 2+4=6, 5+6=11 -> group 11 row 6 : gold
+// Match story numeric value to centered-hexagon structure : https://vedabase.io/en/library/sb/10/36/
+// humped-bull demon : कुकुद्मिनं (Kukudminam) = 2(Ka)+6(U)+2(Ka)+6(U)+4(Da)+4(M)+1(I)+5(Na)+4(M) = 34 (hump shape: 34% : 1 sigma) exists -> presumably Mp 39
+// Kṛṣṇa (कृष्ण) = 2(Ka)+2(Rri)+5(Sh)+5(Na) = 14, helps the humans (23) -> locate {23, 41};  bull-demon tears up the embankments
+// Kṛṣṇa (14) holds the bull demon by the horns (1) and throws it back 18 steps. Mp 39 is up diagonal: 1,66,97,134 -> 13466917
+//                                                               From structure base to Mp 39 digits: 3+ 4+ 5+ 6 = 18 steps
+             ...
+          37, 55,   79, 109, 145, 187
+          36, 54,   78, 108, 144, 186
+          35, 53,   77, 107, 143, 185
+          34, 52,   76, 106, 142, 184
+          33, 51,   75, 105, 141, 183
+         [32],50,   74, 104, 140, 182 // Between 32 and 25:
+     19,  31, 49,   73, 103, 139, 181 // Sargon II #s: 31+30+29 = 90
+     18,  30, 48,   72, 102, 138, 180 // Other #s:     28+27+26 = 81 -> Mp 10: p=89
+     17,  29, 47,   71, 101, 137, 179
+     16,  28, 46,   70, 100, 136, 178
+     15,  27 ,45,   69,  99, 135, 177 // Mp 39 : diagonal (134)(97)(66)(1) -> p=13466917;
+     14,  26, 44,   68,  98,(134),176 // Mp 39 relation: 39th prime is 167 -> per"mutation" of 176 next to the bull-"demon"
+  7, 13, [25],43,   67, (97),133, 175 // Under [25] and skipping [21] : 24+23+22+20 = 89 -> Mp 10 p=89
+  6, 12,  24, 42,  (66), 96, 132, 174
+  5,[11],{23, 4(1)},65,  95, 131, 173 // Under [11]; 10 & 8,9 -> Mp 10 p=89
+  4, 10,  22, 40,   64,  94, 130, 172
+  3,  9, [21],39,   63,  93, 129, 171
+1,2,  8,  20, 38,   62,  92, 128, 170
 
 
 
